@@ -22,6 +22,19 @@ class PlayingCardView: UIView {
     @IBInspectable
     var isFaceup: Bool = true { didSet {setNeedsDisplay(); setNeedsLayout()}}
     
+    //add pintch touch in the view
+    var faceCardScale: CGFloat = SizeRatio.faceCardImageSizeToBoundsSize{ didSet {setNeedsDisplay()}}
+    
+    @objc func adjustFaceCardScale(byHandlingGuesterRecognizedBy recogizer: UIPinchGestureRecognizer)
+    {
+        switch recogizer.state
+        {
+        case .changed, .ended: faceCardScale *= recogizer.scale
+            recogizer.scale = 1.0
+        default: break
+        }
+    }
+    
     //make the number of the card in the center and size is scalable
     private func centeredAttributedString(_ string: String, fontSize: CGFloat) -> NSAttributedString
     {
@@ -139,7 +152,7 @@ class PlayingCardView: UIView {
         {
             if let faceCardImage = UIImage(named: rankString + suit, in: Bundle(for: self.classForCoder), compatibleWith: traitCollection)
             {
-                faceCardImage.draw(in: bounds.zoom(by: SizeRatio.faceCardImageSizeToBoundsSize))
+                faceCardImage.draw(in: bounds.zoom(by: faceCardScale))
             }
             else
             {

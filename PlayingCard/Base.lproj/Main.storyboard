@@ -22,6 +22,7 @@
                             <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="EHJ-lC-KdD" customClass="PlayingCardView" customModule="PlayingCard" customModuleProvider="target">
                                 <rect key="frame" x="16" y="136.66666666666669" width="343" height="548.66666666666652"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" priority="750" constant="800" id="MXi-6a-9Lx"/>
                                     <constraint firstAttribute="width" secondItem="EHJ-lC-KdD" secondAttribute="height" multiplier="5:8" id="qlz-9o-jjH"/>
@@ -36,6 +37,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EHJ-lC-KdD" secondAttribute="trailing" constant="16" id="HWz-yb-No5"/>
                             <constraint firstItem="EHJ-lC-KdD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="HYC-dU-RHi"/>
@@ -45,9 +47,20 @@
                             <constraint firstItem="EHJ-lC-KdD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="ufv-QX-YF1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Bof-2Y-owM" appends="YES" id="aL4-Ho-yig"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="playingCardView" destination="EHJ-lC-KdD" id="XuC-jC-KlU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Bof-2Y-owM">
+                    <connections>
+                        <action selector="flipCard:" destination="BYZ-38-t0r" id="bgq-eP-ddy"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-100" y="86.453201970443359"/>
         </scene>
