@@ -69,6 +69,7 @@ struct PlayingCard: CustomStringConvertible
             return allRank
         }
         
+        //extension of the protocol
         var description: String
         {
             switch self {
