@@ -26,6 +26,13 @@
                                     <constraint firstAttribute="width" priority="750" constant="800" id="MXi-6a-9Lx"/>
                                     <constraint firstAttribute="width" secondItem="EHJ-lC-KdD" secondAttribute="height" multiplier="5:8" id="qlz-9o-jjH"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isFaceup" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♦"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

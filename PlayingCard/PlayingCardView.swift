@@ -8,12 +8,19 @@
 
 import UIKit
 
+//use this label to show the actual effect on the main story board view
+@IBDesignable
+
 class PlayingCardView: UIView {
 
     //sub views needs layout
-    var rank: Int = 5 { didSet {setNeedsDisplay(); setNeedsLayout()}}
+    //use IBInspectable tag to see all the var you want to see in the storyboard
+    @IBInspectable
+    var rank: Int = 12 { didSet {setNeedsDisplay(); setNeedsLayout()}}
+    @IBInspectable
     var suit: String = "♥" { didSet {setNeedsDisplay(); setNeedsLayout()}}
-    var isFaceup: Bool = false { didSet {setNeedsDisplay(); setNeedsLayout()}}
+    @IBInspectable
+    var isFaceup: Bool = true { didSet {setNeedsDisplay(); setNeedsLayout()}}
     
     //make the number of the card in the center and size is scalable
     private func centeredAttributedString(_ string: String, fontSize: CGFloat) -> NSAttributedString
@@ -130,7 +137,7 @@ class PlayingCardView: UIView {
         
         if isFaceup
         {
-            if let faceCardImage = UIImage(named: rankString + suit)
+            if let faceCardImage = UIImage(named: rankString + suit, in: Bundle(for: self.classForCoder), compatibleWith: traitCollection)
             {
                 faceCardImage.draw(in: bounds.zoom(by: SizeRatio.faceCardImageSizeToBoundsSize))
             }
@@ -141,7 +148,7 @@ class PlayingCardView: UIView {
         }
         else
         {
-            if let cardBackImage = UIImage(named: "cardback")
+            if let cardBackImage = UIImage(named: "cardback",in: Bundle(for: self.classForCoder), compatibleWith: traitCollection)
             {
                 cardBackImage.draw(in: bounds)
             }
